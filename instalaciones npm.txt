@@ -1,0 +1,8 @@
+1. Instalo sequelize
+$ npm install --save sequelize  
+
+2. Instalo soporte para postgres
+$ npm install --save pg pg-hstore
+
+3. instalo express
+npm i express
