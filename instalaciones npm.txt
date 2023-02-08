@@ -6,3 +6,6 @@ $ npm install --save pg pg-hstore
 
 3. instalo express
 npm i express
+
+4. instalo dotenv
+npm i dotenv

@@ -1,10 +1,15 @@
 require('dotenv').config();
+//const dotenv = require('dotenv');
+//dotenv.config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const {
-  DB_USER, DB_PASSWORD, DB_HOST,
-} = process.env;
+
+//modelos sequelize
+const modelCountry = require('./models/Country.js')
+const modelActivity = require('./models/Activity.js')
+
+const {DB_USER, DB_PASSWORD, DB_HOST,} = process.env;
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
   logging: false, // set to console.log to see the raw SQL queries
