@@ -9,3 +9,6 @@ npm i express
 
 4. instalo dotenv
 npm i dotenv
+
+5. instalo axios nodemon y morgan
+npm i axios nodemon morgan
