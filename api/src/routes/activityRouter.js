@@ -1,4 +1,5 @@
 const {Router} = require("express");
+const { Activity, Country } = require('../db');
 
 const activityRouter = Router();
 

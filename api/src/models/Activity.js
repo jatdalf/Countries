@@ -9,20 +9,20 @@ module.exports = sequelize => {
         allowNull:false
       },
       name:{
-        type:DataTypes.STRING,
-        allowNull:false,
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       dificulty:{
-        type:DataTypes.ENUM(1, 2, 3, 4, 5),
-        allowNull:false,
+        type: DataTypes.ENUM(1, 2, 3, 4, 5),
+        allowNull: false,
       },
       duration:{
-        type:DataTypes.INTEGER,        
-        allowNull:false,
+        type: DataTypes.INTEGER,        
+        allowNull: false,
       },
       season:{
         type: DataTypes.ENUM('Summer', 'Spring', 'Autumn', 'Winter', 'All'),
-        defaultValue:'All'
+        defaultValue:'All'  
       }
     },{
       timestamps:false

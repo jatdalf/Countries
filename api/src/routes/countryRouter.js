@@ -1,5 +1,5 @@
 const {Router} = require("express");
-
+const { Country, Activity } = require('../db');
 const countryRouter = Router();
 
 countryRouter.get("/", (req, res)=>(
