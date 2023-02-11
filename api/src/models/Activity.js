@@ -1,30 +1,31 @@
-const { DataTypes } = require('sequelize');  
-
-//aqui declaramos el modelo que va a manejar las actividades turisticas
-module.exports = sequelize => {
-    sequelize.define('activity', {
-      ID:{
+const { DataTypes } = require('sequelize');
+// Exportamos una funcion que define el modelo
+// Luego le injectamos la conexion a sequelize.
+module.exports = (sequelize) => {
+  // defino el modelo
+  sequelize.define('activity', {
+    ID:{
         type: DataTypes.INTEGER,
         primaryKey:true,
         allowNull:false
       },
-      name:{
-        type: DataTypes.STRING,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    dificulty:{
+        type: DataTypes.ENUM('1', '2', '3', '4', '5'),
         allowNull: false,
-      },
-      dificulty:{
-        type: DataTypes.ENUM(1, 2, 3, 4, 5),
-        allowNull: false,
-      },
-      duration:{
+    },
+    duration:{
         type: DataTypes.INTEGER,        
         allowNull: false,
-      },
-      season:{
+    },
+    season:{
         type: DataTypes.ENUM('Summer', 'Spring', 'Autumn', 'Winter', 'All'),
         defaultValue:'All'  
-      }
-    },{
-      timestamps:false
-    })
-  }
+    },
+  },{
+    timestamps:false
+  });
+};
