@@ -28,7 +28,7 @@ conn.sync({ force: false }).then(() => {
     const allCountries = Country.findAll();
     //si hay datos en la db no los vuelvo a traer, sino... cargo la db con los datos de la api
     try {
-      if(!allCountries.length){
+      if(!allCountries.length>1){
         const apiCountries = await axios.get('https://restcountries.com/v3/all');
         var apiCountriesFullfilled = apiCountries.data.map((e) => {
           return {
