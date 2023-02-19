@@ -5,10 +5,10 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('activity', {
     ID:{
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey:true,
-        allowNull:false
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        allowNull: false,
+        primaryKey: true       
       },
     name: {
       type: DataTypes.STRING,

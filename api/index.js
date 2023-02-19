@@ -20,15 +20,17 @@
 const server = require('./src/app.js');
 const { conn, Country   } = require('./src/db.js');
 const axios = require('axios')
+const getCountries = require("./src/Controllers/countries")
 
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
   server.listen(3001, async () => {
     //cargo los datos de la db en una constante
-    const allCountries = Country.findAll();
+    const  getAllCountries = async()=> {await getCountries()};
+    console.log(getAllCountries.length); 
     //si hay datos en la db no los vuelvo a traer, sino... cargo la db con los datos de la api
     try {
-      if(!allCountries.length>1){
+      if(!getAllCountries.length){ 
         const apiCountries = await axios.get('https://restcountries.com/v3/all');
         var apiCountriesFullfilled = apiCountries.data.map((e) => {
           return {
