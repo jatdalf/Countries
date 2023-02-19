@@ -1,15 +1,11 @@
 const {Router} = require("express");
-const { Country, Activity } = require('../db');
-
+const getActivityHandler = require ("../Handlers/getActivity")
+const postActivityHandler = require ("../Handlers/postActivity")
 const activityRouter = Router();
 
-activityRouter.get("/", (req, res)=>(
-    res.status(200).send("sin implementar: ruta para el GET de Actividades")
-));
+activityRouter.get("/", getActivityHandler);
 
-activityRouter.post("/", (req, res)=>(
-    res.status(200).send("sin implementar: ruta para el POST de Actividades")
-));
+activityRouter.post("/", postActivityHandler);
 
 activityRouter.put("/", (req, res)=>(
     res.status(200).send("sin implementar: ruta para el PUT de Actividades")
