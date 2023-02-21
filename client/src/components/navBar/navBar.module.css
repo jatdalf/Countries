@@ -1,0 +1,12 @@
+.navContainer{
+    font-weight: 700;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 20px;
+    border: 1px solid black;
+    background-color: cornflowerblue;
+    color: blue;    
+    height: 2.5em;  
+    font-size: 130%;     
+}
