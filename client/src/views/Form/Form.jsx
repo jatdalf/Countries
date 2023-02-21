@@ -1,4 +1,6 @@
 import { useState } from "react";
+import style from "./Form.module.css"
+
 
 const Form = () =>{
     const [form, setForm] = useState({
@@ -16,7 +18,7 @@ const Form = () =>{
     }
 
     return(
-        <form>        
+        <form className={style.activityForm}>        
             <h1>Create new activity</h1>
             <div>
                 <label>Activity name: </label>

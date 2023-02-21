@@ -1,4 +1,13 @@
-.landing{
-    background-image: linear-gradient(to bottom, #21154c, #1a133b, #15102a, #0e091a, #020202);
-    color: aqua ;
+.landingVideo{
+    position:absolute;
+    z-index:-1;
+    top:0;
+    left:0;
+    width:100%; 
+    height:100vh;
+}
+
+.homeButton{
+    position: absolute;
+    top: 30%;
 }

@@ -5,8 +5,14 @@
     justify-content: space-around;
     border-radius: 20px;
     border: 1px solid black;
-    background-color: cornflowerblue;
-    color: blue;    
+    background-color: #000426;
+    color: white;    
     height: 2.5em;  
-    font-size: 130%;     
+    font-size: 130%;   
+    
 }
+
+a:link, a:visited, a:active {
+    text-decoration:none;
+    color: white;
+}  

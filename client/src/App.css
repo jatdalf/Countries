@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background-image: url('./Assets/BgCountries.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}

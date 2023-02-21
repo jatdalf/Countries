@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
 import style from "./Landing.module.css"
 
+import BackgroundVideo from "../../Assets/bg.mp4"
+
 const Landing = () =>{
-    return(
-        <div className={style.landing}>
-            <h1>Esta es mi Landing</h1>
-            <Link to="/home">
+    return(        
+        <div >                      
+            <video className={style.landingVideo} autoPlay muted loop id="background-video">
+                <source src={BackgroundVideo} type="video/mp4" />
+            </video>
+            <Link to="/home" className={style.homeButton} >
                 <button>Home</button>
-            </Link>            
+            </Link>  
         </div>
     )
 }
