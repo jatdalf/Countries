@@ -1,6 +1,7 @@
 .navContainer{
     font-weight: 700;
     display: flex;
+    align-items: center;
     flex-direction: row;
     justify-content: space-around;
     border-radius: 20px;
@@ -8,8 +9,7 @@
     background-color: #000426;
     color: white;    
     height: 2.5em;  
-    font-size: 130%;   
-    
+    font-size: 130%;
 }
 
 a:link, a:visited, a:active {
