@@ -2,6 +2,7 @@ import CardContainer from "../../components/CardContainer/CardContainer";
 import { useEffect, useState } from "react";
 import { getCountries, getCountriesByname } from "../../Redux/actions";
 import { useDispatch } from "react-redux";
+import filterBar from "../../components/Filters/filters";
 import Paginado from "../../components/Paginado/pager"
 
 
@@ -12,12 +13,13 @@ const Home = () =>{
     // const startIndex = (currentPage - 1) * itemsPerPage;
     // const endIndex = startIndex + itemsPerPage;
     // const currentData = data.slice(startIndex, endIndex);
-    const dispatch = useDispatch();
-
-    // function handlePageChange(page) {
+    
+        // function handlePageChange(page) {
     //     setCurrentPage(page);
     //   }
     
+    const dispatch = useDispatch();
+
     useEffect(()=>{
         dispatch(getCountries())
     },[dispatch])
@@ -28,6 +30,7 @@ const Home = () =>{
 
     return(
         <div>
+            <filterBar></filterBar>
             {/* <ul>
                 {currentData.map((item, index) => (<li key={index}>{item}</li>))}
             </ul>
