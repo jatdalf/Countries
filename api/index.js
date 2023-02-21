@@ -21,10 +21,12 @@ const server = require('./src/app.js');
 const { conn, Country   } = require('./src/db.js');
 const axios = require('axios')
 const getCountries = require("./src/Controllers/countries")
+const {PORT} = process.env;
 
+require("dotenv").config()
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
-  server.listen(3001, async () => {
+  server.listen(PORT, async () => {
     //cargo los datos de la db en una constante
     const  getAllCountries = async()=> {await getCountries()};
     console.log(getAllCountries.length); 
@@ -50,6 +52,6 @@ conn.sync({ force: false }).then(() => {
     } catch (error) {
       console.log(error) 
     }    
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+    console.log('%s listening at', PORT); // eslint-disable-line no-console
   });
 });
