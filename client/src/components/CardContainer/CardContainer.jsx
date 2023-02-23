@@ -8,7 +8,7 @@ const Countries = useSelector(state => state.Countries)
         <div className={style.CardContainer}>
             {Countries.map(country =>{
                 return <Card
-                ID= {country.ID}
+                key= {country.ID}
                 name= {country.name}
                 flag_img= {country.flag_img}
                 continent= {country.continent}

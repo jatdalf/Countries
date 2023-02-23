@@ -1,6 +1,8 @@
 import axios from "axios";
 export const GET_COUNTRIES = "GET_COUNTRIES"
 export const BY_NAME = "BY_NAME"
+export const ORDER_BY = "ORDER_BY"
+
 
 export const getCountries = ()=>{
     return async function(dispatch){
@@ -24,3 +26,10 @@ export const getCountriesByname = (name)=>{
         }       
     };
 };
+
+export function orderBy(payload) {
+    return {
+        type: ORDER_BY,
+        payload
+    }
+}

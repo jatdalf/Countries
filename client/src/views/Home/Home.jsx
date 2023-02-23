@@ -1,15 +1,19 @@
 import CardContainer from "../../components/CardContainer/CardContainer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getCountries, getCountriesByname } from "../../Redux/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Paginado from "../../components/Paginado/pager"
-import filterbar from "../../components/Filters/filterbar";
+import Filterbar from "../../components/Filters/filterbar";
 import { Route, useLocation } from 'react-router-dom';
 import style from "./Home.module.css"
 
 
 const Home = () =>{
     const dispatch = useDispatch();
+    // const [setOrder] = useState("");
+
+    useSelector(state => state.orderCountries)
+    // const activity = useSelector(state => state.activity)
     
     useEffect(()=>{
         dispatch(getCountries())
@@ -20,15 +24,9 @@ const Home = () =>{
     // },[dispatch])
 
     return(
-        <div className={style.HomeDiv}>   
-            <Route path="/" render = {()=> <filterbar/>}/>  
-            <fieldset>
-                <legend> Select order method </legend> 
-                   <p><input type="radio" name="order" id="az" value="az"/>Order from A to Z</p> 
-                   <p><input type="radio" name="order" id="za" value="za"/>Order from Z to A</p>                 
-            </fieldset>
-            
-            <CardContainer></CardContainer>            
+        <div className={style.HomeDiv}>               
+            <Filterbar/>           
+            <CardContainer/>            
         </div>
     )
 }

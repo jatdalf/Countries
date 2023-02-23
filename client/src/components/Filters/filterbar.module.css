@@ -1,3 +1,27 @@
 .filterContainer{
-    color: turquoise;
+    color: turquoise;    
+}
+
+.filterTable{
+    width: 100%;
+}
+
+.firstCol{
+    width: 36%;
+    
+}
+
+.secondtCol{
+    width: 28%; 
+    text-align: center;      
+}
+
+.thirdCol{
+    width: 36%;   
+    vertical-align: middle  ;   
+}
+
+.byNameInmput{
+    width: 100%;
+    text-align: center;   
 }
