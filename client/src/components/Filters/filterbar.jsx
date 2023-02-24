@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { orderBy, getCountriesByname, ByContinent } from "../../Redux/actions";
 import style from "../Filters/filterbar.module.css"
 
+const Filterbar = ()=>{
     const dispatch = useDispatch();   
     
     // useEffect(()=>{
