@@ -24,3 +24,10 @@
 .formSelect{
     width: 13.3em;
 }
+
+.activityBody {
+    height: 36.5em;
+    background-image: url('../../Assets/BgCountries.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

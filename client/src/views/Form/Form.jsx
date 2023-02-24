@@ -1,6 +1,6 @@
 import { useState } from "react";
 import style from "./Form.module.css"
-
+import backgroundImg from "../../Assets/BgCountries.jpg"
 
 const Form = () =>{
     const [form, setForm] = useState({
@@ -43,6 +43,7 @@ const Form = () =>{
     }
 
     return(
+        <body className={style.activityBody} >
         <form className={style.activityForm} onSubmit={submitHandler}>        
             <h1>Create new activity</h1>
             
@@ -84,17 +85,18 @@ const Form = () =>{
                     </td>
                     <td>
                     <select className={style.formSelect} value={form.season} onChange={changeHandler}  name="season">
-                        <option value="Summer">Summer</option>
-                        <option value="Spring">Spring</option>
-                        <option value="Autumn">Autumn</option>
-                        <option value="Winter">Winter</option>
-                        <option value="All" selected>All</option>
+                        <option value="Summer"> Summer </option>
+                        <option value="Spring"> Spring </option>
+                        <option value="Autumn"> Autumn </option>
+                        <option value="Winter"> Winter </option>
+                        <option value="All" selected> All </option>
                     </select>
                     </td>
                 </tr>          
             </table>                  
             <div><button type="submit">Create activity</button></div>  
         </form>
+        </body>
        )
 }
 

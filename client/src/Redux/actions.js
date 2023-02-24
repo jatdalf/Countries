@@ -2,7 +2,7 @@ import axios from "axios";
 export const GET_COUNTRIES = "GET_COUNTRIES"
 export const BY_NAME = "BY_NAME"
 export const ORDER_BY = "ORDER_BY"
-
+export const BY_CONTINENT = "BY_CONTINENT"
 
 export const getCountries = ()=>{
     return async function(dispatch){
@@ -32,4 +32,11 @@ export function orderBy(payload) {
         type: ORDER_BY,
         payload
     }
+}
+
+export function ByContinent(payload){
+    return {
+        type: BY_CONTINENT,
+        payload
+    }   
 }

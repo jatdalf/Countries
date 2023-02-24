@@ -1,27 +1,36 @@
-import { useDispatch } from "react-redux"
-import { orderBy } from "../../Redux/actions";
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react";
+import { orderBy, getCountriesByname, ByContinent } from "../../Redux/actions";
 import style from "../Filters/filterBar.module.css"
 
 const Filterbar = ()=>{
-    const dispatch = useDispatch();    
+    const dispatch = useDispatch();   
+    
+    // useEffect(()=>{
+    //     dispatch(getCountries())
+    // },[dispatch]) 
 
     function handleOrder(e) {                   
         dispatch(orderBy(e.target.value))  
     }
 
     function handleSearch(e){
-
+        dispatch(getCountriesByname(e.target.value))
     }
 
     function handleFilter(e){
-
+        dispatch(ByContinent(e.target.value))
     }
+
+    const Countries = useSelector(state => state.Countries)
+    let filtederContinents = [...new Set(Countries.map(c =>c.continents))]
+    
 
     return(
         <div className={style.filterContainer}> 
         <table className={style.filterTable}>
         <td className={style.firstCol}>           
-            <fieldset onChange={handleOrder}><legend> Select order method </legend>                
+            <fieldset onChange={handleOrder} onClick={handleOrder}><legend> Select order method </legend>                
                 <tr>
                     <td><input type="radio" name="order" key="az" value="az"/> By Name: from A to Z</td>
                     <td><input type="radio" name="order" key="popAsc" value="popAsc"/> By Population from - to +</td>
@@ -40,19 +49,24 @@ const Filterbar = ()=>{
         <td className={style.thirdCol}>
         <fieldset onChange={handleFilter}><legend> Select Filter method </legend>   
             <tr>
-                <td>Filter by region: </td>
+                <td>Filter by continent: </td>
                 <td>
                     <select name="region">
-                    <option value="1">..........................................</option>
-                    <option value="2">Easy</option>
-                    <option value="3">Normal</option>
-                    <option value="4">Difficult</option>
-                    <option value="5">Extreme</option>
+                        {/* {filtederContinents.map(c =>{
+                            return <option key={c} value={c}> {c} </option>})} */}
+                        <option defaultValue value="All" key="All" > All continents </option>
+                        <option value='Africa' key='Africa'> Africa </option>
+                        <option value='Antarctica' key='Antarctica'> Antarctica </option>
+                        <option value='Asia' key='Asia'> Asia </option>
+                        <option value='Europe' key='Europe'> Europe </option>
+                        <option value='North America' key='NorthAmerica'> North America </option>
+                        <option value='Oceania' key='Oceania'> Oceania</option>
+                        <option value='South America' key='SouthAmerica'> South America </option>
                     </select>
                 </td>                
             </tr>
             <tr>
-                <td>Filter by activity: </td>
+                <td>Filter by activity difficulty: </td>
                 <td>
                 <select name="activity">
                     <option value="1">Very Easy</option>
