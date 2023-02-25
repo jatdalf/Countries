@@ -37,12 +37,3 @@
   }
 }
 
-body {  
-  background: linear-gradient(
-    45deg,
-    rgba(15, 37, 110, 1) 12%,
-    rgba(113, 35, 186, 1) 84%
-  );
-  background-blend-mode: normal;
-}
-

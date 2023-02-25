@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react";
 import { orderBy, getCountriesByname, ByContinent } from "../../Redux/actions";
-import style from "../Filters/filterbar.module.css"
+import style from "../Filters/filterBar.module.css"
 
 const Filterbar = ()=>{
     const dispatch = useDispatch();   
@@ -22,8 +22,8 @@ const Filterbar = ()=>{
         dispatch(ByContinent(e.target.value))
     }
 
-    const Countries = useSelector(state => state.Countries)
-    let filtederContinents = [...new Set(Countries.map(c =>c.continents))]
+    // const Countries = useSelector(state => state.Countries)
+    // let filtederContinents = [...new Set(Countries.map(c =>c.continents))]
     
 
     return(

@@ -9,6 +9,7 @@ const Countries = useSelector(state => state.Countries)
             {Countries.map(country =>{
                 return <Card
                 key= {country.ID}
+                ID= {country.ID}
                 name= {country.name}
                 flag_img= {country.flag_img}
                 continent= {country.continent}

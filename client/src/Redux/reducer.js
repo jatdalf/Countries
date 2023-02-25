@@ -1,9 +1,11 @@
-import { GET_COUNTRIES, BY_NAME, ORDER_BY, BY_CONTINENT } from "./actions";
+import { GET_COUNTRIES, BY_NAME, ORDER_BY, BY_CONTINENT, BY_ID, LOADING } from "./actions";
 
 const initialState = {
     Countries: [],
     orderCountries: [],
-    allContinents: []
+    allContinents: [],
+    details:[],
+    loading: false
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -21,6 +23,12 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 Countries: continentFilter}
+        case BY_ID:
+            return {
+                ...state,
+                details: action.payload,
+                loading: false
+            }
         case ORDER_BY:
             switch (action.payload){    
                 case 'az':
@@ -53,6 +61,11 @@ const rootReducer = (state = initialState, action) => {
                     return {...state, orderCountries: action.payload};                       
                 default: break;
             }       
+        case LOADING:
+                return {
+                    ...state,
+                    loading: true
+                }
         default:
             return {...state};
     }
