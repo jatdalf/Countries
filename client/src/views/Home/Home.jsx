@@ -6,6 +6,7 @@ import Paginado from "../../components/Paginado/pager"
 import Filterbar from "../../components/Filters/filterbar";
 import { Route, useLocation } from 'react-router-dom';
 import style from "./Home.module.css"
+import backgroundImage from "../../Assets/HomeBg.jpg"
 
 
 const Home = () =>{
@@ -24,10 +25,12 @@ const Home = () =>{
     // },[dispatch])
 
     return(
+        <body className={style.HomeBg} background={backgroundImage}>
         <div className={style.HomeDiv}>               
             <Filterbar/>           
             <CardContainer/>            
         </div>
+        </body>
     )
 }
 

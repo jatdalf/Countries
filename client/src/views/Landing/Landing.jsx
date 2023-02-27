@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import style from "./Landing.module.css"
 
-import BackgroundVideo from "../../Assets/bg.mp4"
+import BackgroundVideo from "../../Assets/Bg.mp4"
 
 const Landing = () =>{
     return(        
@@ -9,9 +9,11 @@ const Landing = () =>{
             <video className={style.landingVideo} autoPlay muted loop id="background-video">
                 <source src={BackgroundVideo} type="video/mp4" />
             </video>
-            <Link to="/home" className={style.homeButton} >
-                <button>Home</button>
+            
+            <Link to="/home"  >
+                <button className={style.homeButton}> Home </button>
             </Link>  
+            
         </div>
     )
 }

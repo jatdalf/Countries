@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, BY_NAME, ORDER_BY, BY_CONTINENT, BY_ID, LOADING } from "./actions";
+import { GET_COUNTRIES, BY_NAME, ORDER_BY, BY_CONTINENT, BY_ID } from "./actions";
 
 const initialState = {
     Countries: [],
@@ -61,11 +61,6 @@ const rootReducer = (state = initialState, action) => {
                     return {...state, orderCountries: action.payload};                       
                 default: break;
             }       
-        case LOADING:
-                return {
-                    ...state,
-                    loading: true
-                }
         default:
             return {...state};
     }
