@@ -14,8 +14,7 @@ const Detail = () =>{
     //when mount dipatch action get by ID ->(params)
     useEffect(()=>{    
         dispatch(getCountryById(urlID));
-    },[])
-    console.log(`detail:${details.name}`);
+    },[])   
 
     // if (details.length === 0 || details.id !==urlID || details === null ) {
     if (details.length === 0  || details === null ) {

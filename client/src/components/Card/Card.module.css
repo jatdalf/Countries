@@ -1,11 +1,15 @@
 .card{
     border: 3px solid silver;
-    width: 20em;
-    height: 20em;
+    width: 18em;
+    height: 16em;
     border-radius: 10px;
-    color: white;    
+    color: rgb(251, 255, 0);    
     margin: .5em .5em .5em 1em;
     text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+.FlagImg{
+    border-radius: 50%;
+    width: 80%;    
 }
 
 .glowOnHover {

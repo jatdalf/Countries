@@ -5,6 +5,7 @@ const initialState = {
     orderCountries: [],
     allContinents: [],
     details:[],
+    continentFilter:[],
     loading: false
 };
 
