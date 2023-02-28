@@ -3,8 +3,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mainRouter = require('./routes/index.js');
-//const front = "https://countries-2clwj5t8c-jatdalf.vercel.app/"
-const front = "http://localhost:3000"
+const front = "https://countries-2clwj5t8c-jatdalf.vercel.app/"
+//const front = "http://localhost:3000"
 
 require('./db.js');
 
