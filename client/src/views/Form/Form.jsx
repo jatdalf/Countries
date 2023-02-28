@@ -93,7 +93,8 @@ const Form = () =>{
                     </select>
                     </td>
                 </tr>          
-            </table>                  
+            </table>        
+            <p></p>          
             <div><button type="submit">Create activity</button></div>  
         </form>
         </body>
