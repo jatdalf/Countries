@@ -2,6 +2,13 @@
     color:yellow;
 }
 
+.activityContainer{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 .activityTable{
     text-align: center;
     margin-left: auto;
@@ -31,3 +38,108 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+.error{
+    color: rgb(214, 115, 97);
+    text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(255, 0, 0), 0 0 0.2em rgb(255, 1, 1);
+}
+.container{    
+  width: 130px;
+  height: 40px;
+  text-align: center; 
+}
+.submitButton{
+    font-family: 'Roboto', sans-serif;
+    outline:none;
+    height: 40px;
+    text-align: center;
+    width: 130px;
+    border-radius:40px;
+    background: #fff;
+    border: 2px solid;
+    color: #1ECD97;
+    letter-spacing: 1px;
+    text-shadow: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;    
+}
+    
+.submitButton:hover {
+    color:white;
+    background:#1ECD97;
+    }
+.submitButton:active {      
+    letter-spacing: 2px ;
+    }
+.submitButton:after {
+    content:"SUBMIT";
+}
+
+.onclic {
+    width: 40px;
+    border-color:#bbbbbb;
+    border-width:3px;
+    font-size:0;
+    border-left-color:#1ECD97;
+    animation: rotating 2s 0.25s linear infinite;
+}
+.onclic:after {
+    content:"";
+}
+.onclic:hover {
+    color:#1ECD97;
+    background: white;
+}
+.validate {
+    font-size:13px;
+    color: white;
+    background: #1ECD97;
+}
+.validate:after {
+    font-family:'FontAwesome';
+    content:"\f00c";
+}
+
+  
+  @keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+.center{
+    display: flex;
+    justify-content: center;
+    margin-bottom: -70px;
+}
+.puntitos{
+    list-style: none;
+}
+.lista{
+    margin-top: 20px;
+    margin-bottom: -20px;
+      display: flex;
+      color: white;
+      text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+  }
+  .closeButton{
+    background: transparent;
+    border: none;
+    position: relative;
+    left: 180px;  
+  }
+  .countriesList{
+    display: flex;
+  background-color: rgba(128, 128, 128, 0.082);
+  backdrop-filter: blur(5px);
+    border-radius: 5%;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.25);
+  padding-bottom: 10px;
+  width: 330px;
+  height: 360px;
+  margin-top: 95px;
+  margin-left: 30px;
+  text-decoration: none;
+}
