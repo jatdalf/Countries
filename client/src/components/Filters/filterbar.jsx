@@ -18,7 +18,7 @@ const Filterbar = ()=>{
         dispatch(getCountriesByname(e.target.value))
     }
 
-    function handleFilter(e){
+    function handleFilter(e){        
         dispatch(ByContinent(e.target.value))
     }
 
@@ -51,9 +51,7 @@ const Filterbar = ()=>{
             <tr>
                 <td>Filter by continent: </td>
                 <td>
-                    <select name="region">
-                        {/* {filtederContinents.map(c =>{
-                            return <option key={c} value={c}> {c} </option>})} */}
+                    <select name="region">                 
                         <option defaultValue value="All" key="All" > All continents </option>
                         <option value='Africa' key='Africa'> Africa </option>
                         <option value='Antarctica' key='Antarctica'> Antarctica </option>
