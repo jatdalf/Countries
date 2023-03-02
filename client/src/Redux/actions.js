@@ -4,6 +4,24 @@ export const BY_NAME = "BY_NAME"
 export const ORDER_BY = "ORDER_BY"
 export const BY_CONTINENT = "BY_CONTINENT"
 export const BY_ID = "BY_ID"
+export const GET_ACTIVITIES="GET_ACTIVITIES"
+export const POST_ACTIVITY = "POST_ACTIVITY";
+
+export const postActivity = ()=>{
+    return async function(dispatch){
+        const newActivity = await axios.post(`/activity`);
+        const activity = newActivity.data
+        dispatch({type: POST_ACTIVITY, payload: activity});
+    };
+};
+
+export const getActivities = ()=>{
+    return async function(dispatch){
+        const activityData = await axios.get(`/activity`);
+        const activities = activityData.data
+        dispatch({type: GET_ACTIVITIES, payload: activities});
+    };
+};
 
 export const getCountries = ()=>{
     return async function(dispatch){

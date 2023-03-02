@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import style from "./Form.module.css"
 import backgroundImg from "../../Assets/BgCountries.jpg"
 import { useDispatch, useSelector } from 'react-redux'
-import { getCountries } from "../../Redux/actions";
+import { getCountries, postActivity } from "../../Redux/actions";
 
 const Form = () =>{
     const dispatch = useDispatch();    
@@ -57,17 +57,27 @@ const Form = () =>{
 
     const submitHandler = (event)=>{
         event.preventDefault();
-        console.log(validateForm());
-        if(validateForm()){
+        // setErrorsValue(validate(newActivity))
+        // const error = validate(newActivity)
+        // console.log(validate());
+        if(validateForm()){       
+            dispatch(postActivity(newActivity))
+            // document.Form.reset();
+            setNewActivity({name:"",difficulty:"",duration:"",season:"",countries:[]})
             alert("activity added")
+    // if(Object.values(error).length === 0){
         }else{
             alert("error detected cannot submit")
         }          
     }
 
     //
-    function HandleActivity(e){
-        setNewActivity({...newActivity,[e.target.name]:e.target.value})
+    function HandleActivity(event){
+        const property = event.target.name;
+        const value = event.target.value;
+        validate({...form, [property]:value})        
+        setForm({...form, [property]:value})
+        setNewActivity({...newActivity,[event.target.name]:event.target.value})
       }
     
       function HandleCountry(e){
@@ -137,7 +147,8 @@ const Form = () =>{
                         <label>Activity name: </label>
                     </td>
                     <td>
-                        <input type="text" value={form.name} onChange={changeHandler} name="name"/>
+                        {/* <input type="text" value={form.name} onChange={changeHandler} name="name"/> */}
+                        <input type="text" value={form.name} onChange={e=> HandleActivity(e)} name="name"/>
                         <br></br>
                         {errors.name && <span className={style.error}>{errors.name}</span>}
                     </td>
@@ -147,7 +158,7 @@ const Form = () =>{
                         <label>Dificulty: </label>
                     </td>
                     <td>
-                        <select className={style.formSelect} name="dificulty">
+                        <select className={style.formSelect} name="dificulty" onChange={e=> HandleActivity(e)}>
                         <option value="1">Very Easy</option>
                         <option value="2">Easy</option>
                         <option value="3" selected>Normal</option>
@@ -161,7 +172,7 @@ const Form = () =>{
                         <label>Duration : </label>
                     </td>
                     <td> 
-                        <select className={style.formSelect} name="duration">
+                        <select className={style.formSelect} name="duration" onChange={e=> HandleActivity(e)}>
                         <option value="1" selected>1 Hour</option>
                         <option value="2">2 Hours</option>
                         <option value="3">3 Hours</option>
@@ -176,7 +187,7 @@ const Form = () =>{
                         <label>Season: </label>
                     </td>
                     <td>
-                    <select className={style.formSelect} value={form.season} onChange={changeHandler}  name="season">
+                    <select className={style.formSelect} value={form.season} onChange={e=> HandleActivity(e)}  name="season">
                         <option value="Summer"> Summer </option>
                         <option value="Spring"> Spring </option>
                         <option value="Autumn"> Autumn </option>

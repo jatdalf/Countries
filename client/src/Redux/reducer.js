@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, BY_NAME, ORDER_BY, BY_CONTINENT, BY_ID } from "./actions";
+import { GET_COUNTRIES, BY_NAME, ORDER_BY, BY_CONTINENT, BY_ID, GET_ACTIVITIES, POST_ACTIVITY} from "./actions";
 
 const initialState = {
     Countries: [],
@@ -6,6 +6,7 @@ const initialState = {
     allContinents: [],
     details:[],
     continentFilter:[],
+    activities: [],
     loading: false
 };
 
@@ -62,6 +63,15 @@ const rootReducer = (state = initialState, action) => {
                     return {...state, orderCountries: action.payload};                       
                 default: break;
             }       
+        case GET_ACTIVITIES:
+            return {
+                ...state,
+                activities: action.payload,
+            }
+        case POST_ACTIVITY:
+            return {
+                ...state
+            }
         default:
             return {...state};
     }
