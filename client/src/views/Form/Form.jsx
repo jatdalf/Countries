@@ -62,9 +62,9 @@ const Form = () =>{
         // console.log(validate());
         if(validateForm()){       
             dispatch(postActivity(newActivity))
-            // document.Form.reset();
+            // document.Form.reset();            
+            alert(`activity added : ${newActivity}`)
             setNewActivity({name:"",difficulty:"",duration:"",season:"",countries:[]})
-            alert("activity added")
     // if(Object.values(error).length === 0){
         }else{
             alert("error detected cannot submit")
