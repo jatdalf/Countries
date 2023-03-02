@@ -7,7 +7,6 @@ const mainRouter = require('./routes/index.js');
 const front = "http://localhost:3000"
 
 require('./db.js');
-
 const server = express();
 
 server.name = 'API';
