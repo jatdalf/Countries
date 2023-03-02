@@ -6,14 +6,11 @@ import { useDispatch } from "react-redux"
 import { useState, useEffect } from "react"
 
 const CardContainer = ()=>{
-    const dispatch = useDispatch();
-    const filtrados=useSelector(state=>state.continentFilter)
-    const search= useSelector(state=>state.Countries)
-    const allCountries = useSelector(state => state.countries);
-    // useEffect(() => {    
-    //     setCurrentPage(1)
-    //     setPageItems(0)
-    // },[]);
+    //const dispatch = useDispatch();
+    //const filtrados=useSelector(state=>state.continentFilter)
+    //const search= useSelector(state=>state.Countries)
+    //const allCountries = useSelector(state => state.countries);
+    
     const Countries = useSelector(state => state.Countries)
     //pagination data
     const [countryData, setCountryData] = useState ([]);

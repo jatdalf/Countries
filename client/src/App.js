@@ -4,7 +4,8 @@ import NavBar from "./components/navBar/navBar"
 //import { BrowserRouter, Route, useLocation } from 'react-router-dom';
 import { Route, useLocation } from 'react-router-dom';
 import axios from 'axios';
-axios.defaults.baseURL = "https://countries-production-7339.up.railway.app/";
+//axios.defaults.baseURL = "https://countries-production-7339.up.railway.app/";
+axios.defaults.baseURL = "http://localhost:3001/";
 
 
 

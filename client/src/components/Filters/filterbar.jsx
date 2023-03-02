@@ -5,26 +5,14 @@ import style from "../Filters/filterBar.module.css"
 
 const Filterbar = ()=>{
     const dispatch = useDispatch();   
-    
+   
     // useEffect(()=>{
     //     dispatch(getCountries())
     // },[dispatch]) 
 
-    function handleOrder(e) {                   
-        dispatch(orderBy(e.target.value))  
-    }
-
-    function handleSearch(e){
-        dispatch(getCountriesByname(e.target.value))
-    }
-
-    function handleFilter(e){        
-        dispatch(ByContinent(e.target.value))
-    }
-
-    // const Countries = useSelector(state => state.Countries)
-    // let filtederContinents = [...new Set(Countries.map(c =>c.continents))]
-    
+    function handleOrder(e) {dispatch(orderBy(e.target.value))}
+    function handleSearch(e){dispatch(getCountriesByname(e.target.value))}
+    function handleFilter(e){dispatch(ByContinent(e.target.value))}
 
     return(
         <div className={style.filterContainer}> 
@@ -64,7 +52,7 @@ const Filterbar = ()=>{
                 </td>                
             </tr>
             <tr>
-                <td>Filter by activity difficulty: </td>
+                {/* <td>Filter by activity difficulty: </td>
                 <td>
                 <select name="activity">
                     <option value="1">Very Easy</option>
@@ -73,7 +61,7 @@ const Filterbar = ()=>{
                     <option value="4">Difficult</option>
                     <option value="5">Extreme</option>
                     </select>
-                </td>
+                </td> */}
             </tr>
         </fieldset>              
         </td>

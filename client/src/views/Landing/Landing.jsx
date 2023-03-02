@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import style from "./Landing.module.css"
 
-import BackgroundVideo from "../../Assets/Bg.mp4"
+import BackgroundVideo from "../../Assets/bg.mp4"
 
 const Landing = () =>{
     return(        
