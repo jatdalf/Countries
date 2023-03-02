@@ -28,7 +28,8 @@ const CardContainer = ()=>{
             <Pagination 
                 totalCards={Countries.length} 
                 cardPerPage={cardPerPage} 
-                setCurrentPage={setCurrentPage}/>        
+                setCurrentPage={setCurrentPage}
+                currentPage={currentPage}/>        
         <div className={style.CardContainer}>
             {/* {Countries.map(country =>{ */}
             {currentCard.map(country =>{

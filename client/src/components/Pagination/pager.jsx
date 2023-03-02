@@ -16,9 +16,8 @@ const Pagination = ({totalCards,cardPerPage,setCurrentPage,currentPage,}) => {
         return (
           <button             
             key={index}
-            onClick={() => setCurrentPage(page)}
-            
-            {...console.log(`pagina ${page} currentPag ${currentPage}`)}
+            onClick={() => setCurrentPage(page)}   
+            className={(page===currentPage) ? style.active : ""}
             >
             {page}
           </button>);
