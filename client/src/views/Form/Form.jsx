@@ -9,14 +9,14 @@ const Form = () =>{
 
     const [form, setForm] = useState({
         name:"",
-        dificulty:"",
+        difficulty:"",
         duration:"",
         season:"" 
     })
 
     const [errors, setErrors] = useState ({
         name:"",
-        dificulty:"",
+        difficulty:"",
         duration:"",
         season:"" 
     })
@@ -61,9 +61,9 @@ const Form = () =>{
         // const error = validate(newActivity)
         // console.log(validate());
         if(validateForm()){       
-            dispatch(postActivity(newActivity))
+            //dispatch(postActivity(newActivity))
             // document.Form.reset();            
-            alert(`activity added : ${newActivity}`)
+            alert(`activity added : ${newActivity.name}`)
             setNewActivity({name:"",difficulty:"",duration:"",season:"",countries:[]})
     // if(Object.values(error).length === 0){
         }else{
