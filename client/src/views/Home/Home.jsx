@@ -6,7 +6,6 @@ import Filterbar from "../../components/Filters/filterbar";
 import style from "./Home.module.css"
 import backgroundImage from "../../Assets/HomeBg.jpg"
 
-
 const Home = () =>{
     const dispatch = useDispatch();
     useSelector(state => state.orderCountries)       
@@ -17,11 +16,10 @@ const Home = () =>{
     return(
         <body className={style.HomeBg} background={backgroundImage}>
         <div className={style.HomeDiv}>               
-            <Filterbar/>           
+            <Filterbar  />           
             <CardContainer/>            
         </div>
         </body>
     )
 }
-
 export default Home;

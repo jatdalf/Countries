@@ -27,8 +27,7 @@ const CardContainer = ()=>{
                 cardPerPage={cardPerPage} 
                 setCurrentPage={setCurrentPage}
                 currentPage={currentPage}/>        
-        <div className={style.CardContainer}>
-            {/* {Countries.map(country =>{ */}
+        <div className={style.CardContainer}>          
             {currentCard.map(country =>{
                 return <Card
                 key= {country.ID}

@@ -5,14 +5,58 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getCountries, postActivity } from "../../Redux/actions";
 
 const Form = () =>{
-    const dispatch = useDispatch();    
+    const dispatch = useDispatch();      
+    //data fot post activity
+    const [dataForm, setDataForm] = useState({
+        name: "",
+        dificulty: "",
+        duration: "",
+        season: "",
+        countries: [],
+      });
+    //data reset 
+    const stateReset = () => {
+        setDataForm({
+          name: "",
+          dificulty: "",
+          duration: "",
+          season: "",
+          countries: [],
+        })};
+    //Handlers
+    const setDataHandler = (e) => {
+        e.preventDefault();    
+        setDataForm({
+          ...dataForm,
+          [e.target.name]: e.target.value,
+        })};
+    
+    const setIdHandler = (e) => {
+    e.preventDefault();
+    setDataForm({
+        ...dataForm,
+        [e.target.name]: dataForm[e.target.name].concat(e.target.value),
+    });    
+    alert("Country Added");
+    };
 
-    const [form, setForm] = useState({
-        name:"",
-        difficulty:"",
-        duration:"",
-        season:"" 
-    })
+const submitForm = (e) => {
+    e.preventDefault();
+    var form = true;
+    if (dataForm["name"].length < 2) {
+      form = false;
+    } else if (!dataForm["countries"].length >= 1) {
+      form = false;
+    }
+    if (form) {
+        //dispatch(postActivity(newActivity))
+        //   .then(() => stateReset())
+        //   .then(() => alert("Activity added"));
+        console.log(`name:${dataForm.name} dif:${dataForm.dificulty} dur:${dataForm.duration } season:${dataForm.season} countries:${dataForm.countries}`);
+    } else {
+      return alert("Please fill all the fields and add at least one country before creating a new activity");
+    }
+  };
 
     const [errors, setErrors] = useState ({
         name:"",
@@ -21,12 +65,6 @@ const Form = () =>{
         season:"" 
     })
 
-    const changeHandler = (event) =>{
-        const property = event.target.name;
-        const value = event.target.value;
-        validate({...form, [property]:value})        
-        setForm({...form, [property]:value})
-    }
     let regexOnlyLetters= /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,20}$/
     
     const validate = (form)=> {
@@ -55,7 +93,7 @@ const Form = () =>{
         return valid
     }
 
-    const submitHandler = (event)=>{
+    const submitHandler = async (event)=>{
         event.preventDefault();
         // setErrorsValue(validate(newActivity))
         // const error = validate(newActivity)
@@ -63,8 +101,13 @@ const Form = () =>{
         if(validateForm()){       
             //dispatch(postActivity(newActivity))
             // document.Form.reset();            
-            alert(`activity added : ${newActivity.name}`)
-            setNewActivity({name:"",difficulty:"",duration:"",season:"",countries:[]})
+            try {
+                alert(`activity added : ${newActivity.name}`)
+                setNewActivity({name:"",difficulty:"",duration:"",season:"",countries:[]})    
+            } catch (error) {
+                alert(error.message)
+            }
+            
     // if(Object.values(error).length === 0){
         }else{
             alert("error detected cannot submit")
@@ -75,17 +118,19 @@ const Form = () =>{
     function HandleActivity(event){
         const property = event.target.name;
         const value = event.target.value;
-        validate({...form, [property]:value})        
-        setForm({...form, [property]:value})
+        validate({...dataForm, [property]:value})        
+        setDataForm({...dataForm, [property]:value})
         setNewActivity({...newActivity,[event.target.name]:event.target.value})
       }
     
       function HandleCountry(e){
-        setNewActivity({...newActivity,countries:[...newActivity.countries,e.target.value]})
+        // setNewActivity({...newActivity,countries:[...newActivity.countries,e.target.value]})
+        setDataForm({...dataForm,countries:[...dataForm.countries,e.target.value]})
       }
     
       function handleDelete(e){
-        setNewActivity({...newActivity,countries: [...newActivity.countries.filter(g=> g !== e)]})
+        // setNewActivity({...newActivity,countries: [...newActivity.countries.filter(g=> g !== e)]})
+        setDataForm({...dataForm,countries:[...dataForm.countries.filter(g=> g !== e)]})
       }
     
       const HandleDispatch=()=>{
@@ -97,7 +142,7 @@ const Form = () =>{
     
     return(
         <body className={style.activityBody} >
-        <form className={style.activityForm} onSubmit={submitHandler}>        
+        <form className={style.activityForm} onSubmit={(e) => submitForm(e)}>        
         <h1>Create new activity</h1>
         <table className={style.activityContainer}>
              
@@ -112,7 +157,7 @@ const Form = () =>{
                     <option hidden>Countries</option>
                     {allCountries?.map(c =>{
                     return(
-                        <option key={c.name} value={c.name} >{c.name}</option>
+                        <option key={c.ID} value={c.name} >{c.name}</option>
                     )
                     })}
                 </select>
@@ -121,8 +166,8 @@ const Form = () =>{
                 
       
       <div className={style.countriesList}>
-        <ul className={style.puntitos}>
-        {newActivity.countries.map(e => 
+        {/* <ul className={style.puntitos}>{newActivity.countries.map(e =>  */}
+        <ul className={style.puntitos}>{dataForm.countries.map(e => 
           <span key={e}>
           <li>
             <span className={style.lista}>{e}</span>
@@ -148,7 +193,7 @@ const Form = () =>{
                     </td>
                     <td>
                         {/* <input type="text" value={form.name} onChange={changeHandler} name="name"/> */}
-                        <input type="text" value={form.name} onChange={e=> HandleActivity(e)} name="name"/>
+                        <input type="text" value={dataForm.name} placeholder="Name your activity" onChange={e=> HandleActivity(e)} name="name"/>
                         <br></br>
                         {errors.name && <span className={style.error}>{errors.name}</span>}
                     </td>
@@ -187,7 +232,7 @@ const Form = () =>{
                         <label>Season: </label>
                     </td>
                     <td>
-                    <select className={style.formSelect} value={form.season} onChange={e=> HandleActivity(e)}  name="season">
+                    <select className={style.formSelect} value={dataForm.season} onChange={e=> HandleActivity(e)}  name="season">
                         <option value="Summer"> Summer </option>
                         <option value="Spring"> Spring </option>
                         <option value="Autumn"> Autumn </option>
@@ -202,7 +247,7 @@ const Form = () =>{
                 <tr>  ........................................</tr>
                 <td>   </td>
                 <td className={style.container}>
-                    <button className={style.submitButton} name="Sbutton" type="submit" onClick={submitHandler} />
+                    <button className={style.submitButton} name="Sbutton" type="submit" onClick={submitForm} />
                 </td> .....................................
             </tr>
 

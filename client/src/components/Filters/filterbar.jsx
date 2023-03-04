@@ -1,24 +1,27 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react";
+import { useState, setState } from "react";
 import { orderBy, getCountriesByname, ByContinent } from "../../Redux/actions";
 import style from "../Filters/filterBar.module.css"
 
 const Filterbar = ()=>{
     const dispatch = useDispatch();   
-   
-    // useEffect(()=>{
-    //     dispatch(getCountries())
-    // },[dispatch]) 
+    const [currentPage, setCurrentPage] = useState(1);
 
-    function handleOrder(e) {dispatch(orderBy(e.target.value))}
-    function handleSearch(e){dispatch(getCountriesByname(e.target.value))}
-    function handleFilter(e){dispatch(ByContinent(e.target.value))}
+    function handleOrder(e) {               
+        dispatch(orderBy(e.target.value))}
+    function handleSearch(e){        
+        dispatch(getCountriesByname(e.target.value))
+        currentPage = 1
+        setCurrentPage(currentPage)
+    }
+    function handleFilter(e){            
+        dispatch(ByContinent(e.target.value))}
 
     return(
         <div className={style.filterContainer}> 
         <table className={style.filterTable}>
         <td className={style.firstCol}>           
-            <fieldset onChange={handleOrder} onClick={handleOrder}><legend> Select order method </legend>                
+            <fieldset onClick={handleOrder}><legend> Select order method </legend>                
                 <tr>
                     <td><input type="radio" name="order" key="az" value="az"/> By Name: from A to Z</td>
                     <td><input type="radio" name="order" key="popAsc" value="popAsc"/> By Population from - to +</td>

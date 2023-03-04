@@ -8,8 +8,6 @@ const Pagination = ({totalCards,cardPerPage,setCurrentPage,currentPage,}) => {
       pages.push(i);
   }
 
-
-
   return (
     <div className={style.pagination}>
       {pages.map((page, index) => {
