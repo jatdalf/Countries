@@ -4,5 +4,4 @@ const getCountriesById = async (id) => await Country.findByPk(id, { include: Act
 
 const getAllCountries =  ()=> Country.findAll({include: Activity})
 
-
 module.exports = { getCountriesById, getAllCountries }

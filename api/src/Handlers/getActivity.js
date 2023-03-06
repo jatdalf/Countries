@@ -1,4 +1,3 @@
-const { Country, Activity } = require('../db');
 const {getAllActivitys} = require ("../Controllers/Activity")
 
 const getActivity = async (req, res)=>{
@@ -9,6 +8,5 @@ const getActivity = async (req, res)=>{
         res.status(400).json({error:error.message})
     }    
 }
-
 
 module.exports = getActivity

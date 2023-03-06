@@ -1,7 +1,7 @@
 const {getAllCountries} = require("../Controllers/countries")
 
 const getCountriesHandler = async (req, res)=>{
-    const { name } = req.query   
+    const { name } = req.query   //destructuring of query
     //load db in allCountries variable
     const allCountries = await getAllCountries()
     if(name){
