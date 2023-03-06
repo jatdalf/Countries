@@ -1,15 +1,18 @@
 import axios from "axios";
-export const GET_COUNTRIES = "GET_COUNTRIES"
-export const BY_NAME = "BY_NAME"
-export const ORDER_BY = "ORDER_BY"
-export const BY_CONTINENT = "BY_CONTINENT"
-export const BY_ID = "BY_ID"
-export const GET_ACTIVITIES="GET_ACTIVITIES"
+export const GET_COUNTRIES = "GET_COUNTRIES";
+export const BY_NAME = "BY_NAME";
+export const ORDER_BY = "ORDER_BY";
+export const BY_CONTINENT = "BY_CONTINENT";
+export const BY_ID = "BY_ID";
+export const GET_ACTIVITIES="GET_ACTIVITIES";
 export const POST_ACTIVITY = "POST_ACTIVITY";
+export const BY_ACTIVITY_DIFFICULT =  "BY_ACTIVITY_DIFFICULT";
+export const BY_ACTIVITY_NAME =  "BY_ACTIVITY_NAME";
 
-export const postActivity = ()=>{
+export const postActivity = (activityBody)=>{
     return async function(dispatch){
-        const newActivity = await axios.post(`/activity`);
+        console.log(activityBody);
+        const newActivity = await axios.post(`/activity`, activityBody);
         const activity = newActivity.data
         dispatch({type: POST_ACTIVITY, payload: activity});
     };
@@ -68,3 +71,21 @@ export function ByContinent(payload){
     }   
 }
 
+export function byActivity(payload) {
+    return {
+        type: BY_ACTIVITY_DIFFICULT,
+        payload
+    }
+}
+
+export function byActivityName(activity) {
+    try {
+        return {
+            type: BY_ACTIVITY_NAME,
+            payload: activity
+        }    
+    } catch (error) {
+        alert({error:error.message})
+    }
+    
+}

@@ -2,31 +2,27 @@ import Card from "../Card/Card"
 import style from "./CardContainer.module.css"
 import { useSelector } from "react-redux"
 import Pagination from "../Pagination/pager"
-import { useDispatch } from "react-redux"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 const CardContainer = ()=>{
-    //const dispatch = useDispatch();
-    //const filtrados=useSelector(state=>state.continentFilter)
-    //const search= useSelector(state=>state.Countries)
-    //const allCountries = useSelector(state => state.countries);
-    
     const Countries = useSelector(state => state.Countries)
     //pagination data
-    const [countryData, setCountryData] = useState ([]);
+    // const [countryData, setCountryData] = useState ([]);
     const [currentPage, setCurrentPage] = useState (1)
-    const [cardPerPage, setCardPerPage] = useState (9)
+    // const [cardPerPage, setCardPerPage] = useState (9)
+    const [cardPerPage] = useState (9)
     const lastCardIndex = currentPage * cardPerPage;
     const fistCardIndex = lastCardIndex - cardPerPage; 
     const currentCard = Countries.slice(fistCardIndex, lastCardIndex)
     //end pagination data
+    
     return (
         <div>
             <Pagination 
                 totalCards={Countries.length} 
-                cardPerPage={cardPerPage} 
+                cardPerPage={cardPerPage}                                 
                 setCurrentPage={setCurrentPage}
-                currentPage={currentPage}/>        
+                currentPage={currentPage}/>                       
         <div className={style.CardContainer}>          
             {currentCard.map(country =>{
                 return <Card
@@ -40,8 +36,7 @@ const CardContainer = ()=>{
                 area= {country.area}
                 population= {country.population}
                 activities= {country.activities}
-                />
-            })
+                />})            
             }        
         </div>            
         </div>

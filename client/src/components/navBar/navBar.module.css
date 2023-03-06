@@ -16,3 +16,9 @@ a:link, a:visited, a:active {
     text-decoration:none;
     color: white;
 }  
+
+a:hover {
+    box-shadow: 0 0 2rem rgb(255, 255, 255);
+    -webkit-transition: box-shadow 0.5s ease-in-out;
+    transition: box-shadow 0.5s ease-in-out;
+  }

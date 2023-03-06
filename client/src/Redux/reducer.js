@@ -1,13 +1,23 @@
-import { GET_COUNTRIES, BY_NAME, ORDER_BY, BY_CONTINENT, BY_ID, GET_ACTIVITIES, POST_ACTIVITY} from "./actions";
+import { GET_COUNTRIES, 
+        BY_NAME, ORDER_BY, 
+        BY_CONTINENT, 
+        BY_ID, 
+        GET_ACTIVITIES, 
+        BY_ACTIVITY_DIFFICULT,
+        BY_ACTIVITY_NAME,
+        POST_ACTIVITY } from "./actions";
 
 const initialState = {
     Countries: [],
     orderCountries: [],
     allContinents: [],
-    details:[],
     continentFilter:[],
+    details:[],    
     activities: [],
-    loading: false
+    activityFilter:[],
+    loading: false,   
+    countryNames: [], 
+    error:[]
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -61,8 +71,9 @@ const rootReducer = (state = initialState, action) => {
                         return 0;
                     })  
                     return {...state, orderCountries: action.payload};                       
-                default: break;
-            }       
+                default: 
+                break;
+            }break;       
         case GET_ACTIVITIES:
             return {
                 ...state,
@@ -70,8 +81,28 @@ const rootReducer = (state = initialState, action) => {
             }
         case POST_ACTIVITY:
             return {
-                ...state
+                ...state,
+                activities: action.payload,
             }
+        case BY_ACTIVITY_DIFFICULT: //not implemented yet
+            // const allActivities = state.activities;            
+            // const activityFilter = allActivities.filter(a => a.activities.find((e) => e.dificulty === action.payload))
+            // console.log(activityFilter);
+            return {
+                ...state,                
+                //Countries: activityFilter
+            }
+        case BY_ACTIVITY_NAME:
+            const activityName = state.activities            
+            const AllCount = state.Countries
+            const filter = action.payload ==="All" ? 
+                           AllCount : 
+                           activityName.filter(a=>a.name===action.payload)[0].countries.map(e=>e)
+            return {
+                ...state,                
+                Countries: filter
+            }
+
         default:
             return {...state};
     }

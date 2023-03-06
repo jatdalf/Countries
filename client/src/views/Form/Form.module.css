@@ -8,7 +8,6 @@
     margin-right: auto;
 }
 
-
 .activityTable{
     text-align: center;
     margin-left: auto;
@@ -38,15 +37,18 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+
 .error{
     color: rgb(214, 115, 97);
     text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(255, 0, 0), 0 0 0.2em rgb(255, 1, 1);
 }
+
 .container{    
   width: 130px;
   height: 40px;
   text-align: center; 
 }
+
 .submitButton{
     font-family: 'Roboto', sans-serif;
     outline:none;
@@ -90,13 +92,13 @@
     background: white;
 }
 .validate {
-    font-size:13px;
-    color: white;
-    background: #1ECD97;
+  font-size:13px;
+  color: white;
+  background: #1ECD97;
 }
 .validate:after {
-    font-family:'FontAwesome';
-    content:"\f00c";
+  font-family:'FontAwesome';
+  content:"\f00c";
 }
 
   
@@ -131,10 +133,10 @@
     left: 180px;  
   }
   .countriesList{
-    display: flex;
+  display: flex;
   background-color: rgba(128, 128, 128, 0.082);
   backdrop-filter: blur(5px);
-    border-radius: 5%;
+  border-radius: 5%;
   box-shadow: 2px 2px 4px rgba(0,0,0,0.25);
   padding-bottom: 10px;
   width: 330px;
@@ -142,4 +144,8 @@
   margin-top: 95px;
   margin-left: 30px;
   text-decoration: none;
+}
+.MiniFlagImg{
+  width: 5%;
+  height: 5%;
 }

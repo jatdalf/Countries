@@ -1,34 +1,39 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useState, setState } from "react";
-import { orderBy, getCountriesByname, ByContinent } from "../../Redux/actions";
+import { orderBy, getCountriesByname, ByContinent, byActivityName } from "../../Redux/actions";
 import style from "../Filters/filterBar.module.css"
 
 const Filterbar = ()=>{
-    const dispatch = useDispatch();   
-    const [currentPage, setCurrentPage] = useState(1);
+    const dispatch = useDispatch();  
+    const activity = useSelector(state => state.activities) //probando esto  
+   
+    function handleOrder(e) {dispatch(orderBy(e.target.value))}
 
-    function handleOrder(e) {               
-        dispatch(orderBy(e.target.value))}
-    function handleSearch(e){        
-        dispatch(getCountriesByname(e.target.value))
-        currentPage = 1
-        setCurrentPage(currentPage)
+    function handleSearch(e){dispatch(getCountriesByname(e.target.value))}
+
+    function handleContinentFilter(e){                            
+      dispatch(ByContinent(e.target.value))}
+    
+    function handleActivityFilter(e){
+        // if(e.target.value==="0"){ //this is for activity difficulty filter           
+        if(e.target.value==="All"){
+            dispatch(ByContinent("All"))
+        }else {                        
+            dispatch(byActivityName(e.target.value))
+        }
     }
-    function handleFilter(e){            
-        dispatch(ByContinent(e.target.value))}
-
+      
     return(
         <div className={style.filterContainer}> 
         <table className={style.filterTable}>
         <td className={style.firstCol}>           
-            <fieldset onClick={handleOrder}><legend> Select order method </legend>                
+            <fieldset ><legend> Select order method </legend>                
                 <tr>
-                    <td><input type="radio" name="order" key="az" value="az"/> By Name: from A to Z</td>
-                    <td><input type="radio" name="order" key="popAsc" value="popAsc"/> By Population from - to +</td>
+                    <td><input onClick={handleOrder} type="radio" name="order" key="az" value="az"/> By Name: from A to Z</td>
+                    <td><input onClick={handleOrder} type="radio" name="order" key="popAsc" value="popAsc"/> By Population from - to +</td>
                 </tr>
                 <tr>
-                    <td><input type="radio" name="order" key="za" value="za"/> By Name: from Z to A</td>
-                    <td><input type="radio" name="order" key="popDes" value="popDes"/> By Population from + to -</td>
+                    <td><input onClick={handleOrder} type="radio" name="order" key="za" value="za"/> By Name: from Z to A</td>
+                    <td><input onClick={handleOrder} type="radio" name="order" key="popDes" value="popDes"/> By Population from + to -</td>
                 </tr>                                
             </fieldset>               
         </td>
@@ -38,11 +43,11 @@ const Filterbar = ()=>{
             </fieldset>              
         </td>
         <td className={style.thirdCol}>
-        <fieldset onChange={handleFilter}><legend> Select Filter method </legend>   
+        <fieldset  ><legend> Select Filter method </legend>   
             <tr>
                 <td>Filter by continent: </td>
                 <td>
-                    <select name="region">                 
+                    <select onChange={handleContinentFilter} name="region">                 
                         <option defaultValue value="All" key="All" > All continents </option>
                         <option value='Africa' key='Africa'> Africa </option>
                         <option value='Antarctica' key='Antarctica'> Antarctica </option>
@@ -57,7 +62,8 @@ const Filterbar = ()=>{
             <tr>
                 {/* <td>Filter by activity difficulty: </td>
                 <td>
-                <select name="activity">
+                <select name="activity" onChange={handleActivityFilter}>
+                    <option value="0">All Activities</option>
                     <option value="1">Very Easy</option>
                     <option value="2">Easy</option>
                     <option value="3">Normal</option>
@@ -65,6 +71,17 @@ const Filterbar = ()=>{
                     <option value="5">Extreme</option>
                     </select>
                 </td> */}
+            </tr><tr>
+                <td>Filter by activity Name</td>
+                <td>
+                    <select onChange={handleActivityFilter} >
+                        <option value='All' >All activities</option>
+                        {activity.map(e => (
+                            <option value={e.name} key={e.ID}>{e.name}</option>
+                        ))}
+                    </select>
+                </td>
+
             </tr>
         </fieldset>              
         </td>

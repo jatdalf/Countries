@@ -1,7 +1,5 @@
 import style from "./Card.module.css"
-import { useSelector } from "react-redux"
 import {Link} from 'react-router-dom'
-
 
 const Card = (props)=>{    
     const data = props
@@ -27,10 +25,7 @@ const Card = (props)=>{
             </td>
         </tr>
     </table>      
-    </div>
-    
-    )
-    
+    </div>)
 }
 
 export default Card
