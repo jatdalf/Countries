@@ -82,7 +82,7 @@ const Form = () =>{
                 alert(`Activity "${dataForm.name}" added`)
                 dispatch(postActivity(dataForm))                                
                   .then(() => stateReset())                                  
-                window.location.reload();
+                //window.location.reload();
             } else {
             return alert("Please fill all the fields \nname may not contain numbers\ncheck at least one country is added\nbefore creating a new activity");
             }    
