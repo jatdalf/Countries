@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { orderBy, getCountriesByname, ByContinent, byActivityName } from "../../Redux/actions";
-import style from "../Filters/filterBar.module.css"
+import style from "../Filters/filter.module.css"
 
 const Filterbar = ()=>{
     const dispatch = useDispatch();  
