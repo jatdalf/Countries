@@ -9,6 +9,7 @@ import backgroundImage from "../../Assets/HomeBg.jpg"
 const Home = () =>{
     const dispatch = useDispatch(); 
     
+    // useSelector(state => state.orderCountries) cambio esta linea, evita la pantalla en negro luego de adicionar actividades??
     useSelector(state => state.orderCountries)       
     useEffect(()=>{
         dispatch(getCountries()) //get all Countries from Back

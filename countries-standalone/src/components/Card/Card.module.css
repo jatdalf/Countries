@@ -1,0 +1,27 @@
+.card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #526779;
+  border-radius: 14px;
+  background: rgba(15, 29, 42, .7);
+  color: #edf3fa;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  text-shadow: none;
+}
+.card *, .card *::before, .card *::after { box-sizing: border-box; }
+.heading { display: grid; justify-items: center; gap: 0px; }
+.flagFrame { display: grid; place-items: center; width: 100%; height: 100px; }
+.card .flag { position: static; display: block; width: 160px; height: 96px; margin: 0; border: 0; border-radius: 5px; object-fit: contain; }
+.card .title { position: static; display: grid; align-items: center; width: 100%; min-height: 56px; margin: 0; padding: 0; color: #edf3fa; font-family: inherit; font-size: 20px; font-weight: 600; line-height: 1.4; text-align: center; overflow-wrap: anywhere; text-shadow: none; animation: none; }
+.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0px; width: 100%; margin: 1px 0 2px; padding: 8px 0; border-top: 1px solid #344b5d; border-bottom: 1px solid #344b5d; text-align: center; }
+.fact { display: grid; gap: 5px; min-width: 0; }
+.fact dt { color: #aabfd0; font-size: 11px; font-weight: 400; letter-spacing: .04em; }
+.fact dd { margin: 0; color: #edf3fa; font-size: 15px; line-height: 1.5; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.card .details, .card .details:visited { display: inline-flex; align-items: center; justify-content: space-between; gap: 4px; align-self: center; min-width: 120px; height: 37px; margin-top: auto; padding: 11px 18px; border: 1px solid #6996a4; border-radius: 8px; background: #203f50; color: #e6f4f7; font-family: inherit; font-size: 13px; font-weight: 600; line-height: 1.5; text-decoration: none; text-shadow: none; box-shadow: none; transition: background-color 180ms ease, border-color 180ms ease; }
+.details span { color: inherit; font-size: 18px; }
+.card .details:hover { background: #2d5668; border-color: #9ac9d5; color: #fff; box-shadow: none; }
+.card .details:focus-visible { outline: 2px solid #69e3f0; outline-offset: 4px; }
+@media(prefers-reduced-motion: reduce) { .card .details { transition: none; } }

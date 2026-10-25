@@ -1,0 +1,26 @@
+.pagination {    
+    font-weight: 500;
+}
+
+.pagination button{
+    display: inline-block;
+    color: rgb(253, 253, 253);
+    text-decoration: none;
+    border: 3px solid #f6f6f8;
+    padding: 4px 9px 4px 9px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.pagination button:active {    
+    border-color: #101010;
+    background: turquoise;
+    color: #101010;   
+}
+
+.pagination button.active {    
+    border-color: #101010;
+    background: turquoise;
+    color: #101010;   
+}

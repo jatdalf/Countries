@@ -1,0 +1,46 @@
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 36vw, 480px);
+  padding: 10px 20px;
+  background: #0d1928;
+  border-bottom: 1px solid #2c4358;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+.navContainer .navLink,
+.navContainer .navLink:visited {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 40px;
+  padding: 2px 14px;
+  overflow: hidden;
+  border: 1px solid rgba(105, 227, 240, .2);
+  border-radius: 6px;
+  background: rgba(105, 227, 240, .03);
+  color: #cde5ee;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-decoration: none;
+  text-shadow: none;
+  box-shadow: none;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+.navContainer .navLink.active { background: rgba(105, 227, 240, .12); color: #69e3f0; }
+.navContainer .navLink:hover { background: #69e3f0; color: #102837; box-shadow: none; }
+.navContainer .navLink:focus-visible { outline: 2px solid #69e3f0; outline-offset: 4px; }
+.edge { position: absolute; display: block; pointer-events: none; }
+.edge:nth-child(1) { top: 0; left: -100%; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #69e3f0); animation: topEdge 2s linear infinite; }
+.edge:nth-child(2) { top: -100%; right: 0; width: 2px; height: 100%; background: linear-gradient(180deg, transparent, #69e3f0); animation: rightEdge 2s linear .5s infinite; }
+.edge:nth-child(3) { right: -100%; bottom: 0; width: 100%; height: 2px; background: linear-gradient(270deg, transparent, #69e3f0); animation: bottomEdge 2s linear 1s infinite; }
+.edge:nth-child(4) { bottom: -100%; left: 0; width: 2px; height: 100%; background: linear-gradient(0deg, transparent, #69e3f0); animation: leftEdge 2s linear 1.5s infinite; }
+@keyframes topEdge { 0% { left: -100%; } 50%, 100% { left: 100%; } }
+@keyframes rightEdge { 0% { top: -100%; } 50%, 100% { top: 100%; } }
+@keyframes bottomEdge { 0% { right: -100%; } 50%, 100% { right: 100%; } }
+@keyframes leftEdge { 0% { bottom: -100%; } 50%, 100% { bottom: 100%; } }
+@media(max-width: 400px) { .navContainer { gap: 12px; padding-inline: 16px; } .navContainer .navLink { min-width: 0; flex: 1; padding-inline: 16px; } }
+@media(prefers-reduced-motion: reduce) { .edge { animation: none; } .navContainer .navLink { transition: none; } }

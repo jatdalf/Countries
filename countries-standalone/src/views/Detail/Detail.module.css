@@ -1,0 +1,48 @@
+.page {
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  min-height: calc(100svh - 80px);
+  padding: 28px clamp(20px, 4vw, 64px);
+  background-color: #030505;
+  background-repeat: no-repeat;
+  background-size: 80% auto;
+  background-position: center;
+  color: #edf3fa;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  text-align: left;
+}
+.page *, .page *::before, .page *::after { box-sizing: border-box; }
+.layout { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr); gap: 22px; width: 100%; max-width: 1100px; margin: 0 auto; align-items: start; }
+.country, .activities { min-width: 0; padding: 26px; border: 1px solid #3c4b52; border-radius: 16px; background: rgba(12, 24, 33, .8); box-shadow: 0 16px 40px rgba(0, 0, 0, .2); }
+.heading { display: flex; align-items: center; justify-content: space-between; gap: 22px; margin-bottom: 24px; }
+.identity { min-width: 0; }
+.eyebrow { display: block; color: #9acbd1; font-size: 9px; font-weight: 600; line-height: 1.6; letter-spacing: .12em; }
+.page .title { position: static; margin: 10px 0 0; padding: 0; color: #f1f5f9; font-family: inherit; font-size: clamp(26px, 3vw, 40px); font-weight: 600; line-height: 1.15; letter-spacing: -.035em; overflow-wrap: anywhere; text-align: left; text-shadow: none; animation: none; }
+.page .region { margin: 12px 0 0; color: #b4c3ce; font-size: 12px; line-height: 1.7; }
+.flagFrame { display: grid; place-items: center; flex-shrink: 0; width: 136px; height: 100px; padding: 8px; border: 1px solid #3a4c58; border-radius: 10px; background: rgba(255, 255, 255, .04); }
+.page .flag { position: static; display: block; width: 100%; height: 100%; max-width: 120px; max-height: 80px; margin: 0; border: 0; border-radius: 2px; object-fit: contain; box-shadow: none; }
+.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; margin: 0; padding: 0; border-top: 1px solid #354650; }
+.fact { min-width: 0; padding: 16px 0; border-bottom: 1px solid #354650; }
+.facts dt, .activityFacts dt { color: #a7bbc9; font-size: 11px; font-weight: 400; line-height: 1.5; }
+.facts dd, .activityFacts dd { margin: 6px 0 0; color: #edf3fa; font-size: 16px; font-weight: 500; line-height: 1.5; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.page .dataNote { margin: 18px 0 0; color: #9fb2be; font-size: 10px; line-height: 1.6; }
+.activityHeader { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.count { color: #b8c8d2; font-size: 10px; white-space: nowrap; }
+.page .sectionTitle { position: static; margin: 14px 0 22px; padding: 0; color: #edf3fa; font-family: inherit; font-size: 25px; font-weight: 500; line-height: 1.3; letter-spacing: -.025em; text-align: left; text-shadow: none; animation: none; }
+.page .label { display: block; margin: 0 0 8px; color: #b9cbd5; font-size: 11px; font-weight: 400; }
+.page .select { width: 100%; min-width: 0; min-height: 44px; padding: 10px 12px; border: 1px solid #586d7c; border-radius: 8px; background: #162b39; color: #edf3fa; font-family: inherit; font-size: 12px; }
+.activityFacts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 16px; margin: 22px 0; }
+.activityFacts > div { min-width: 0; }
+.activityFacts dd { font-size: 14px; }
+.empty { margin: 22px 0; padding: 20px 14px; border: 1px dashed #485e6b; border-radius: 10px; color: #afc2cf; font-size: 12px; line-height: 1.7; text-align: center; }
+.emptyMark { display: block; color: #9acbd1; font-size: 28px; line-height: 1; }
+.page .empty p { margin: 12px 0 4px; color: #e0eaf0; font-size: 14px; }
+.page .createLink, .page .createLink:visited { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 44px; padding: 11px 14px; border: 1px solid #5b8996; border-radius: 8px; background: #203f50; color: #e6f4f7; font-size: 12px; font-weight: 600; text-decoration: none; text-shadow: none; box-shadow: none; }
+.page .createLink:hover { background: #2d5668; box-shadow: none; }
+.page .storageNote { margin: 12px 0 0; color: #9fb2be; font-size: 10px; line-height: 1.5; text-align: center; }
+.page .select:focus-visible, .page .createLink:focus-visible { outline: 2px solid #69e3f0; outline-offset: 4px; }
+.message { width: fit-content; margin: auto; padding: 24px; border-radius: 12px; background: #102331; color: #edf3fa; }
+@media(max-width: 760px) { .page { padding: 24px 18px; background-size: auto 75%; } .layout { grid-template-columns: 1fr; max-width: 580px; gap: 18px; } .country, .activities { padding: 22px; } }
+@media(max-width: 420px) { .heading { gap: 14px; } .flagFrame { width: 90px; height: 70px; } .page .title { font-size: 26px; } .facts { gap: 0 16px; } .facts dd { font-size: 14px; } }
+@media(min-width: 761px) and (max-height: 720px) { .page { padding-block: 18px; } .country, .activities { padding: 22px; } .heading { margin-bottom: 18px; } .fact { padding-block: 12px; } }

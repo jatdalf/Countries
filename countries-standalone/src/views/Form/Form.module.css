@@ -1,0 +1,39 @@
+.page { min-height: calc(100svh - 80px); padding: 30px clamp(20px,4vw,64px); background: linear-gradient(rgba(6,18,28,.23),rgba(6,18,28,92)),url('../../Assets/BgCountries.jpg') center/cover; color: #edf3fa; font-family: 'Segoe UI',Arial,sans-serif; text-align: left; }
+.page,.page *,.page *::before,.page *::after {box-sizing: border-box;}
+.container {width: 100%;max-width:1100px;margin:0 auto;}
+.heading {margin-bottom:26px;}
+.eyebrow,.step {display:block;color:#9acbd1;font-size:9px;font-weight:600;line-height:1.6;letter-spacing:.13em;}
+.page .title {position:static;margin:12px 0 0;padding:0;color:#edf3fa;font-family:inherit;font-size:clamp(28px,3.5vw,40px);font-weight:500;line-height:1.2;letter-spacing:-.035em;text-align:left;text-shadow:none;animation:none;}
+.page .subtitle {margin:12px 0 0;color:#b5c9d5;font-size:13px;line-height:1.7;}
+.layout {display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px;margin:0;}
+.panel {min-width:0;padding:26px;border:1px solid #425d6c;border-radius:14px;background:rgba(15,32,45,.8);box-shadow:0 14px 36px rgba(0,0,0,.05);}
+.panelHeader {display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px;}
+.page .sectionTitle {position:static;margin:9px 0 0;padding:0;color:#edf3fa;font-family:inherit;font-size:23px;font-weight:500;line-height:1.3;letter-spacing:-.025em;text-shadow:none;text-align:left;animation:none;}
+.badge {padding:7px 10px;border:1px solid #4b7481;border-radius:999px;color:#b6e7e9;font-size:10px;white-space:nowrap;}
+.page .field {display:grid;gap:8px;min-width:0;margin:0;color:#c2d5e0;font-size:12px;font-weight:500;text-align:left;}
+.page .input {position:static;display:block;float:none;width:100%;min-width:0;height:44px;margin:0;padding:10px 12px;border:1px solid #547181;border-radius:8px;background:#162f40;color:#edf3fa;font-family:inherit;font-size:13px;font-weight:400;text-align:left;box-shadow:none;}
+.page .input::placeholder {color:#9eb5c4;opacity:1;}
+.countryList {height:244px;margin-top:16px;padding:6px;overflow-y:auto;border:1px solid #395362;border-radius:10px;background:rgba(6,21,31,.15);scrollbar-color:#527b8b #102634;}
+.page .countryRow {display:flex;align-items:center;gap:10px;margin:0;padding:10px;border-radius:6px;color:#d6e4ed;font-size:12px;font-weight:400;line-height:1.5;cursor:pointer;}
+.countryRow:hover {background:rgba(105,227,240,.06);}
+.page .countryRow.selected {background:rgba(105,227,240,.11);color:#c5f4f7;}
+.countryRow input {position:static;flex-shrink:0;width:16px;height:16px;margin:0;accent-color:#69d8e4;}
+.countryName {min-width:0;overflow-wrap:anywhere;}
+.countryCode {margin-left:auto;color:#9bb2c1;font-size:10px;}
+.selectedList {display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+.page .chip {display:inline-flex;align-items:center;gap:10px;max-width:100%;margin:0;padding:7px 10px;border:1px solid #497a87;border-radius:6px;background:#234757;color:#d6f2f6;font-family:inherit;font-size:11px;overflow-wrap:anywhere;cursor:pointer;box-shadow:none;}
+.chip span {font-size:16px;}
+.fields {display:grid;gap:18px;}
+.fieldGrid {display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.hint {margin:0;color:#9eb7c6;font-size:10px;font-weight:400;line-height:1.7;}
+.page .submit {position:static;display:flex;align-items:center;justify-content:space-between;gap:18px;width:100%;min-height:46px;margin:4px 0 0;padding:12px 16px;border:1px solid #76d6df;border-radius:8px;background:#76d6df;color:#102d3a;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;box-shadow:none;text-shadow:none;}
+.page .submit:hover {background:#a2e9ef;}
+.submit span {font-size:20px;color:inherit;}
+.page .submit:disabled {opacity:.6;cursor:wait;}
+.page .storageNote {margin:22px 0 0;padding-top:16px;border-top:1px solid #395362;color:#9fb7c5;font-size:10px;line-height:1.7;}
+.page .error,.page .success {margin:0;padding:12px;border:1px solid #925f6b;border-radius:8px;background:#3a2530;color:#ffd3dc;font-size:12px;line-height:1.7;}
+.page .success {border-color:#4d887b;background:#193b35;color:#c0efe1;}
+.empty {padding:24px;color:#b9cdd8;font-size:12px;text-align:center;}
+.page input:focus-visible,.page select:focus-visible,.page button:focus-visible {outline:2px solid #69e3f0;outline-offset:3px;}
+@media(max-width:760px) {.layout {grid-template-columns:1fr;gap:18px;}.page {padding:24px 18px;}.panel {padding:22px;}}
+@media(max-width:400px) {.fieldGrid {grid-template-columns:1fr;}.badge {font-size:9px;}.page .sectionTitle {font-size:21px;}}

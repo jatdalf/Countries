@@ -1,0 +1,12 @@
+.CardContainer {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+  width: min(1200px, calc(100% - 40px));
+  margin: 24px auto;
+}
+@media(max-width: 900px) { .CardContainer { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; } }
+@media(max-width: 560px) { .CardContainer { grid-template-columns: 1fr; width: calc(100% - 32px); } }
+

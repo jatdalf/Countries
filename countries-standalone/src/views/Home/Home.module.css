@@ -1,14 +1,14 @@
-.CardContainer{
-    border: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    border-radius: 15px;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 98%;    
-    margin:auto;
+.HomeDiv{
+    color: turquoise;
 }
 
+.HomeBg{
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    height: 64em;
+    background-color: #293438;
+}
 
 .texto{
     font-size: 20px;
@@ -28,11 +28,11 @@
     font-size: 15px;
  }
 
-.Pbutton:hover{
+ .Pbutton:hover{
     background-color: #6f91a0;
 }
 
-.paginado{
+ .paginado{
     display: flex;
     justify-self: center;
     justify-items: center;
