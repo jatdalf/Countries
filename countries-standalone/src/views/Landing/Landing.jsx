@@ -10,8 +10,10 @@ const Landing = () =>{
                 <source src={BackgroundVideo} type="video/mp4" />
             </video>
             
-            <Link to="/home"  >
-                <button className={style.homeButton}> Home </button>
+            <Link to="/home">
+            <button className={style.homeButton}>
+                <span>Home</span>
+            </button>
             </Link>
         </div>
     )

@@ -139,3 +139,27 @@ body{
       background-position: 0 0;
     }
   }
+
+  .homeButton {
+  isolation: isolate;
+  border: none;
+}
+
+.homeButton::before,
+.homeButton::after {
+  z-index: -1;
+  pointer-events: none;
+}
+
+.homeButton span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0c0c0c;
+  color: #ffffff;
+  z-index: 1;
+}
+
+.homeButton:hover span {
+  color: #ffffff;
+}
